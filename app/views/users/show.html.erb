@@ -1,0 +1,14 @@
+<h1>VISTA DEL USUARIO </h1>
+<h2><%= @user.email %></h2>
+<%= link_to 'logout', destroy_user_session_path, method: :delete %>
+
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <ol class="microposts">
+        <%= render @microposts %>
+      </ol>
+
+    <% end %>
+  </div>
+  

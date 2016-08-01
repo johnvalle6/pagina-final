@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body background="http://wallpapercave.com/wp/wTqtbNE.jpg">
+
+   <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <%= link_to "Interative school", '#', id: "logo" %>
+
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home",   static_pages_home_path %></li>
+            <li><%= link_to 'signup', new_user_registration_path %></li>
+
+             <% if user_signed_in? %>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+            <%end%>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>
